@@ -1,0 +1,30 @@
+[Maven 3.3.1 ](https://maven.apache.org/docs/3.3.1/release-notes.html)
+mvn <group-id>:<artifact-id>:(<version>):<goal>@<execution-id>
+
+```maven
+  <groupId>org.jvnet.jaxb2.maven2</groupId>
+	<artifactId>maven-jaxb2-plugin</artifactId>
+	<version>0.14.0</version>
+	<executions>
+		<execution>
+			<id>invoice-wsdl-Gen-java</id>
+			<phase>install</phase>
+			<goals>
+				<goal>generate</goal>
+			</goals>
+			<configuration>
+				<schemaLanguage>WSDL</schemaLanguage>
+				<generatePackage>geinv.invoicewebservices._1</generatePackage>
+				<schemaDirectory>${basedir}/src/main/resources/wsdl</schemaDirectory>
+				<schemaIncludes>
+					<include>invoice20111021.wsdl</include>
+				</schemaIncludes>
+			</configuration>
+		</execution>
+  </executions>
+```
+
+```
+mvn org.jvnet.jaxb2.maven2:maven-jaxb2-plugin:generate@invoice-wsdl-Gen-java
+mvn jaxb2:generate@invoice-wsdl-Gen-java
+```
